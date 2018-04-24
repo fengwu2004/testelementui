@@ -1,6 +1,7 @@
 <template>
   <div style="width: 80%;margin: auto;">
     <el-pagination background layout="prev, pager, next" :total="900" page-size="100"></el-pagination>
+    <my-page-wiget></my-page-wiget>
   </div>
 </template>
 
@@ -9,7 +10,11 @@
 </style>
 
 <script>
+
+  import MyPageWiget from '@/components/MyPageWidget'
+
   export default {
+    components: { MyPageWiget },
     data() {
       return {
         tableData: [{
@@ -42,9 +47,11 @@
         return {textAlign:'left'}
       },
       handleEdit(index, row) {
+
         console.log(index, row);
       },
       handleDelete(index, row) {
+
         console.log(index, row);
       }
     }
