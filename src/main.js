@@ -3,11 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Croppa from 'vue-croppa'
 
 import Element from 'element-ui'
+import 'vue-croppa/dist/vue-croppa.css'
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(Element)
+Vue.use(Croppa)
 
 Vue.config.productionTip = false
 
