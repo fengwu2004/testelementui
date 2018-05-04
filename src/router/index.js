@@ -6,20 +6,25 @@ import { default as Table } from '@/components/eltable'
 import { default as Page } from '@/components/page'
 import { default as PageWidget } from '@/components/pagewidget'
 import { default as ImageCropper } from '@/components/imageCropper'
+import { default as TestEscroll } from '@/components/testescroll'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/escroll',
+      name: 'escroll',
+      component: TestEscroll
+    },
+    {
       path: '/image',
       name: 'image',
       component: ImageCropper
     },
     {
-      path: '/page',
-      name: 'page',
-      component: Page
+      path: '',
+      redirect:'/hello',
     },
     {
       path: '/table',
