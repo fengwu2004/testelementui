@@ -134,10 +134,5 @@ export default [
 		"pdName": "【27】  英国JUST SOAP手工皂 玫瑰天竺葵蛋糕皂",
 		"pdPrice": 72.00,
 		"pdSold": 66
-	}, {
-		"pdImg": "../res/img/pd28.jpg",
-		"pdName": "【28】  德国NUK 多色婴幼儿带盖学饮杯",
-		"pdPrice": 92.00,
-		"pdSold": 138
 	}
 ];
