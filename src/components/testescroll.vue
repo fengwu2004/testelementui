@@ -1,8 +1,8 @@
 <template>
   <div class="page">
     <div class="wrapper" ref="wrapper" :style="{ height: wrapperHeight + 'px' }">
-      <mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" :bottom-method="loadBottom" @bottom-status-change="handleBottomChange" ref="loadmore">
-        <div class="list">
+      <mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore">
+        <div class="list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
           <li v-for="item in list" class="listitem">{{ item }}</li>
         </div>
         <div slot="top" class="mint-loadmore-top">
@@ -11,11 +11,11 @@
             <mt-spinner type="snake"></mt-spinner>
           </span>
         </div>
-        <div slot="bottom" class="mint-loadmore-bottom">
-          <span v-show="bottomStatus !== 'loading'" :class="{ 'is-rotate': bottomStatus === 'drop' }">↓</span>
-          <span v-show="bottomStatus === 'loading'">
-            <mt-spinner type="snake"></mt-spinner>
-          </span>
+        <div v-show="loading" class="page-infinite-loading">
+          <div>
+            <mt-spinner type="fading-circle"></mt-spinner>
+          </div>
+          <span style="color: red">加载中...</span>
         </div>
       </mt-loadmore>
     </div>
@@ -77,10 +77,22 @@
       transition: .2s linear;
       vertical-align: middle;
 
-    .is-rotate {
-      transform: rotate(180deg);
+      .is-rotate {
+        transform: rotate(180deg);
+      }
     }
   }
+
+  .page-infinite-loading {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+
+    div {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
   }
 </style>
 
@@ -93,11 +105,23 @@
         bottomStatus:'',
         wrapperHeight: 0,
         translate: 0,
-        moveTranslate: 0
+        moveTranslate: 0,
+        loading:false,
       };
     },
 
     methods: {
+      loadMore() {
+        console.log('loadmore')
+        this.loading = true;
+        setTimeout(() => {
+          let last = this.list[this.list.length - 1];
+          for (let i = 1; i <= 10; i++) {
+            this.list.push(last + i);
+          }
+          this.loading = false;
+        }, 2500);
+      },
       handleTopChange(status) {
         this.moveTranslate = 1;
         this.topStatus = status;
