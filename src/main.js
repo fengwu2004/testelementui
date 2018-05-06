@@ -10,7 +10,7 @@ import { Loadmore, Spinner, InfiniteScroll } from 'mint-ui'
 import 'vue-croppa/dist/vue-croppa.css'
 import 'element-ui/lib/theme-chalk/index.css';
 import 'mint-ui/lib/style.css'
-
+import { dateRangeUtilIntance } from './dateRange.js'
 
 Vue.component(Loadmore.name, Loadmore)
 Vue.component(Spinner.name, Spinner)
@@ -18,6 +18,10 @@ Vue.use(InfiniteScroll)
 
 Vue.use(Element)
 Vue.use(Croppa)
+
+let v = dateRangeUtilIntance.getCurrentDay()
+
+console.log(v)
 
 Vue.config.productionTip = false
 

@@ -5,25 +5,31 @@ import { default as NextFrame } from '@/components/NextFrame'
 import { default as Table } from '@/components/eltable'
 import { default as Page } from '@/components/page'
 import { default as PageWidget } from '@/components/pagewidget'
-import { default as ImageCropper } from '@/components/imageCropper'
+import { default as Image } from '@/components/image'
 import { default as TestEscroll } from '@/components/testescroll'
+import { default as TestHeight } from '@/components/testheight'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/height',
+      name: 'height',
+      component: TestHeight
+    },
+    {
       path: '/escroll',
       name: 'escroll',
       component: TestEscroll
     },
     {
-      path: '/image',
+      path: '',
       name: 'image',
-      component: ImageCropper
+      component: Image
     },
     {
-      path: '',
+      path: '/hello',
       redirect:'/hello',
     },
     {

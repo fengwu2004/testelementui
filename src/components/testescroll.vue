@@ -15,7 +15,7 @@
           <div>
             <mt-spinner type="fading-circle"></mt-spinner>
           </div>
-          <span style="color: red">加载中...</span>
+          <span>加载中...</span>
         </div>
       </mt-loadmore>
     </div>
