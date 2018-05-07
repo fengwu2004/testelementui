@@ -10,11 +10,13 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    '/api-dev': {
-      target: 'http://192.168.43.38:8888/', // 接口的域名,
-      changeOrigin:true,
-      pathRewrite: {
-        '^/api-dev': ''
+    proxyTable: {
+      '/api-dev': {
+        target: 'http://192.168.43.38:8888/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api-dev': ''
+        }
       }
     },
 

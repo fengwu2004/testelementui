@@ -27,8 +27,8 @@ export default new Router({
     },
     {
       path: '',
-      name: 'rich',
-      component: RichEditor
+      name: 'image',
+      component: Image
     },
     {
       path: '/hello',

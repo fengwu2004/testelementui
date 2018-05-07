@@ -3,10 +3,6 @@
     <div>
       <span>主题图片</span>
       <div class="imagecroppaouter">
-        <div style="display: flex;width: 100%;justify-content: center;margin-top: 0.5rem" :style="{visibility:imageAttacted ? 'visible' : 'hidden'}">
-          <el-button @click="outputImg" size="mini">确定</el-button>
-          <el-button @click="cancelImg" size="mini">取消</el-button>
-        </div>
         <div class="croppabound">
           <div style="border: 1px solid #D0D5EF;margin-top: 1rem;">
             <croppa
@@ -20,6 +16,10 @@
               :height="160" :width="460">
             </croppa>
           </div>
+        </div>
+        <div style="display: flex;width: 100%;justify-content: center;margin-top: 0.5rem" :style="{visibility:imageAttacted ? 'visible' : 'hidden'}">
+          <el-button @click="outputImg" size="mini">确定</el-button>
+          <el-button @click="cancelImg" size="mini">取消</el-button>
         </div>
       </div>
       <div style="margin-top: 1rem;">
@@ -39,6 +39,9 @@
 </template>
 
 <script>
+
+  import { picFile } from "@/api/fileupload";
+
   export default {
     mounted() {
 
@@ -59,9 +62,17 @@
 
         let dataUrl = this.croppa.generateDataUrl()
 
-        this.dataUrl = dataUrl
+        this.croppa.generateBlob(blob => {
 
-        this.$emit('imagecroppersuccess', this.dataUrl)
+          let formData = new FormData()
+
+          formData.append('file', blob)
+
+          picFile(formData).then(() => {
+
+            this.dataUrl = dataUrl
+          })
+        })
       },
       cancelImg() {
 
