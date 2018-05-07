@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <image-cropper></image-cropper>
+    <image-cropper rel="imagecropperref"></image-cropper>
   </div>
 </template>
 
@@ -10,7 +10,12 @@
 
   export default {
     components: { ImageCropper },
+    mounted() {
 
+      console.log(this.$refs.imagecropperref)
+
+      console.log('mounted image')
+    }
   }
 
 </script>

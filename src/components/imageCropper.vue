@@ -40,6 +40,10 @@
 
 <script>
   export default {
+    mounted() {
+
+      console.log('imagecropper')
+    },
     methods:{
       uploadCroppedImage() {
         this.croppa.generateBlob(
