@@ -4,9 +4,9 @@
       <span>主题图片</span>
       <div class="imagecroppaouter">
         <div class="croppabound">
-          <div style="border: 1px solid #D0D5EF;margin-top: 1rem;">
+          <div style="border: 1px dashed #D0D5EF;height: 160px">
             <croppa
-              canvas-color="#E0E5EE"
+              canvas-color="white"
               v-model="croppa"
               :show-remove-button="false"
               :placeholder-font-size="20"
@@ -107,7 +107,7 @@
     border: 1px solid #D0D5E5;
     width: 100%;
     height: 240px;
-    max-width: 500px;
+    max-width: 600px;
   }
 
   .croppabound {
@@ -115,6 +115,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 600px;
+    height: 240px;
   }
 
   .imgpreview {
