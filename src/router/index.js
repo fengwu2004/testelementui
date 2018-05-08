@@ -8,7 +8,7 @@ import { default as PageWidget } from '@/components/pagewidget'
 import { default as Image } from '@/components/image'
 import { default as TestEscroll } from '@/components/testescroll'
 import { default as TestHeight } from '@/components/testheight'
-import { default as menu } from '@/components/sd'
+import { default as menu } from '@/components/testmenu'
 import { default as RichEditor } from '@/components/richTextEditor'
 
 Vue.use(Router)
@@ -27,8 +27,8 @@ export default new Router({
     },
     {
       path: '',
-      name: 'image',
-      component: Image
+      name: 'menu',
+      component: menu
     },
     {
       path: '/hello',
