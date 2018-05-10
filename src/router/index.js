@@ -10,6 +10,7 @@ import { default as TestEscroll } from '@/components/testescroll'
 import { default as TestHeight } from '@/components/testheight'
 import { default as menu } from '@/components/testmenu'
 import { default as RichEditor } from '@/components/richTextEditor'
+import { default as TestPopover } from '@/components/test_popover'
 
 Vue.use(Router)
 
@@ -27,8 +28,8 @@ export default new Router({
     },
     {
       path: '',
-      name: 'menu',
-      component: menu
+      name: 'testPopover',
+      component: TestPopover
     },
     {
       path: '/hello',

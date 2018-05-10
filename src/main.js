@@ -12,6 +12,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import 'mint-ui/lib/style.css'
 import { dateRangeUtilIntance } from './dateRange.js'
 
+import { validateAccountName, isvalidUsername, trim} from "@/utils/validate";
+
 Vue.component(Loadmore.name, Loadmore)
 Vue.component(Spinner.name, Spinner)
 Vue.use(InfiniteScroll)
@@ -32,3 +34,10 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+let a = '   sjdksdwsss_SAf   '
+
+console.log(trim(a))
+console.log('sjdkf')
+
+console.log(validateAccountName(trim(a)))
