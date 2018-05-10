@@ -12,7 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import 'mint-ui/lib/style.css'
 import { dateRangeUtilIntance } from './dateRange.js'
 
-import { validateAccountName, isvalidUsername, trim} from "@/utils/validate";
+import { validateUserName, isvalidUsername, trim, validateEmail} from "@/utils/validate";
 
 Vue.component(Loadmore.name, Loadmore)
 Vue.component(Spinner.name, Spinner)
@@ -35,9 +35,9 @@ new Vue({
   template: '<App/>'
 })
 
-let a = '   sjdksdwsss_SAf   '
+let a = '   sjdkss@jsdfs.cn   '
 
 console.log(trim(a))
 console.log('sjdkf')
 
-console.log(validateAccountName(trim(a)))
+console.log(validateEmail(trim(a)))

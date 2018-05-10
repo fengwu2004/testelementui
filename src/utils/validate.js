@@ -51,9 +51,16 @@ export function trim(str){
   return str.replace(/(^\s*)|(\s*$)/g, "")
 }
 
-export function validateAccountName(str) {
+export function validateUserName(str) {
   
-  const reg = /^[0-9a-zA-Z_]{1,}$/
+  const reg = /^[a-zA-Z][a-zA-Z0-9_]{5,29}$/
+  
+  return reg.test(str)
+}
+
+export function validatePassword(str) {
+  
+  const reg = /^[a-zA-Z]\w{5,17}$/
   
   return reg.test(str)
 }
