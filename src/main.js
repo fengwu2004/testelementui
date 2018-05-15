@@ -21,7 +21,7 @@ Vue.use(InfiniteScroll)
 Vue.use(Element)
 Vue.use(Croppa)
 
-let v = dateRangeUtilIntance.getCurrentDay()
+let v = dateRangeUtilIntance.getCurrentWeek()
 
 console.log(v)
 
@@ -35,9 +35,22 @@ new Vue({
   template: '<App/>'
 })
 
-let a = '   sjdkss@jsdfs.cn   '
+// let a = '   sjdkss@jsdfs.cn   '
+//
+// console.log(trim(a))
+// console.log('sjdkf')
+//
+// console.log(validateEmail(trim(a)))
 
-console.log(trim(a))
-console.log('sjdkf')
+let a = 1100
 
-console.log(validateEmail(trim(a)))
+let b = '1100'
+
+if (b == a) {
+  
+  console.log('相等')
+}
+else {
+  
+  console.log('不相等')
+}

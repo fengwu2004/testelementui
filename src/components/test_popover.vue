@@ -5,8 +5,8 @@
       placement="right"
       width="200"
       trigger="focus">
-      <span style="font-size: 0.6rem">密码长度6-14位,字母，数组，标点符号，不允许空格</span>
-      <el-input slot="reference" style="width: 300px"></el-input>
+      <span style="font-size: 0.6rem">密码长度6-18位,字母，数组，标点符号，不允许空格</span>
+      <el-input slot="reference" style="width: 300px" type="password"></el-input>
     </el-popover>
   </div>
 </template>
