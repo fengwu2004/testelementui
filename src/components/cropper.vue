@@ -1,7 +1,7 @@
 <template>
   <div style="width: 40%;margin: 10rem auto;">
     <div>
-      <img id="image" src="../assets/images/timg.jpg" alt="Picture">
+      <img id="image" src="../assets/images/timg.jpg" alt="Picture" style="max-width: 100%;">
     </div>
     <div style="width: 460px;height: 160px;overflow: hidden">
       <img id="preview">
@@ -63,15 +63,6 @@
 </script>
 
 <style scoped rel="stylesheet/scss" lang="scss">
-
-  #preview {
-
-    max-width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-  }
 
 
 </style>
