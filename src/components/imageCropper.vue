@@ -10,7 +10,7 @@
               v-model="croppa"
               :show-remove-button="false"
               :placeholder-font-size="20"
-              placeholder="点击/拖拽上传"
+              placeholder="点击上传"
               @new-image="onImageAttatched"
               @image-remove="onImageRemoved"
               :height="160" :width="460">

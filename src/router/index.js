@@ -11,7 +11,7 @@ import { default as TestHeight } from '@/components/testheight'
 import { default as menu } from '@/components/testmenu'
 import { default as RichEditor } from '@/components/richTextEditor'
 import { default as TestPopover } from '@/components/test_popover'
-import { default as Login } from '@/components/cropper'
+import { default as Cropper } from '@/components/cropper'
 
 Vue.use(Router)
 
@@ -28,9 +28,14 @@ export default new Router({
       component: TestEscroll
     },
     {
-      path: '',
-      name: 'Login',
-      component: Login
+      path: '/cropper',
+      name: 'cropper',
+      component: Cropper
+    },
+    {
+      path: '/image',
+      name: 'image',
+      component: Image
     },
     {
       path: '/hello',

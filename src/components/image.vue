@@ -1,12 +1,12 @@
 <template>
   <div class="main">
-    <image-cropper rel="imagecropperref"></image-cropper>
+    <image-cropper style="margin: 10rem auto;" rel="imagecropperref"></image-cropper>
   </div>
 </template>
 
 <script>
 
-  import { default as ImageCropper } from '@/components/imageCropper'
+  import { default as ImageCropper } from '@/components/imageSpecialCropper'
 
   export default {
     components: { ImageCropper },
@@ -24,7 +24,7 @@
 
   .main {
 
-    max-width: 800px;
-    margin: 10rem auto;
+    /*max-width: 900px;*/
+    /*margin: 10rem auto;*/
   }
 </style>
