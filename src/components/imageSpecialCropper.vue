@@ -11,6 +11,7 @@
           </div>
         </div>
         <div style="display: flex;width: 100%;justify-content: center;margin-top: 1rem" :style="{visibility:dataUrl ? 'visible' : 'hidden'}">
+          <el-button @click="outputImg" size="mini" v-show="imageAttacted">确定</el-button>
           <el-button @click="reloadImage" size="mini">重新上传</el-button>
         </div>
       </div>
@@ -51,7 +52,7 @@
 
           this.clearImg()
 
-          this.dataUrl = 'https://fengyuanchen.github.io/cropperjs/images/picture.jpg'
+          this.dataUrl = 'https://github.com/fengwu2004/testelementui/blob/master/static/picture.jpg?raw=true'
         })
       },
       clearImg() {
