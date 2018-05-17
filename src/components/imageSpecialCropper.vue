@@ -1,14 +1,32 @@
 <template>
-  <div>
-    <div class="imagecroppaouter">
-      <img v-show="imageAttacted" id="imagecropper_item" :src="dataUrl" alt="Picture" style="max-width: 100%;">
-      <div v-show="!imageAttacted" style="display: flex;height: 100%;align-items: center;justify-content: center;" @click="upload">
-        <input id="addfile-btn" class="sr-only" type="file" style="display: none" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff" @change="imagechange"/>
-        <span style="font-size: 2rem">点击上传</span>
+  <div class="imagemain">
+    <div>
+      <span>主题图片</span>
+      <div style="background: #E0E5EE;padding: 2rem 2rem 1rem;">
+        <div class="imagecroppaouter">
+          <img v-show="dataUrl" id="imagecropper_item" :src="dataUrl" alt="Picture" style="max-width: 100%;">
+          <div v-show="!dataUrl" style="display: flex;height: 100%;align-items: center;justify-content: center;" @click="upload">
+            <input id="addfile-btn" ref="input" class="sr-only" type="file" style="display: none" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff" @input="imagechange"/>
+            <span style="font-size: 2rem">点击上传</span>
+          </div>
+        </div>
+        <div style="display: flex;width: 100%;justify-content: center;margin-top: 1rem" :style="{visibility:imageAttacted ? 'visible' : 'hidden'}">
+          <el-button @click="outputImg" size="mini">确定</el-button>
+          <el-button @click="cancelImg" size="mini">取消</el-button>
+        </div>
+      </div>
+      <div style="margin-top: 1rem;">
+        <span class="helpertip">为了更好的显示在捷生活APP首页的信息卡片列表里面，图片尺寸要求</span><span class="focustip">长宽690*240px</span>
       </div>
     </div>
-    <div style="width: 460px;height: 160px;overflow: hidden">
-      <img id="imagecropperpreview"/>
+    <div v-show="dataUrl">
+      <span>手机效果预览</span>
+      <div style="padding: 1rem;box-shadow: 0 8px 20px 0 #D9D9DD;">
+        <div style="width: 460px;height: 160px;overflow: hidden;">
+          <img id="preview"/>
+        </div>
+      </div>
+      <span class="helpertip">系统自动按指定尺寸生成</span>
     </div>
   </div>
 </template>
@@ -23,6 +41,32 @@
       upload() {
 
         document.getElementById("addfile-btn").click();
+      },
+      outputImg() {
+
+        this.cropper.getCroppedCanvas().toBlob(blob => {
+
+          this.clearImg()
+
+          this.dataUrl = 'https://fengyuanchen.github.io/cropperjs/images/picture.jpg'
+        })
+      },
+      clearImg() {
+
+        this.dataUrl = null
+
+        this.$refs.input.value = ''
+
+        if (this.cropper) {
+
+          this.cropper.destroy()
+        }
+
+        this.imageAttacted = false
+      },
+      cancelImg() {
+
+        this.clearImg()
       },
       imagechange() {
 
@@ -44,16 +88,21 @@
           this.cropper.destroy()
         }
 
+        this.imageAttacted = true
+
         let image = document.getElementById('imagecropper_item')
 
-        let preview = document.getElementById('imagecropperpreview')
+        let preview = document.getElementById('preview')
 
         preview.src = image.src
 
         let aspectRatio = 690/240
 
+        let viewMode = 1
+
         this.cropper = new Cropper(image, {
           aspectRatio,
+          viewMode,
           ready(e) {
 
           },
@@ -69,7 +118,7 @@
 
             var imageScaledRatio = data.width / previewWidth;
 
-            preview.style.width = imageData.naturalWidth / imageScaledRatio + 'px';
+            preview.style.width = imageData.naturalWidth / imageScaledRatio + 'px'
 
             preview.style.height = imageData.naturalHeight / imageScaledRatio + 'px';
 
@@ -94,8 +143,7 @@
 
   .imagecroppaouter {
 
-    background: #E0E5EE;
-    border: 1px solid #D0D5E5;
+    border: 1px dashed #D0D5E5;
     height: 240px;
     width: 690px;
   }
@@ -107,9 +155,22 @@
     height: 100%;
   }
 
-  img {
+  .imagemain {
 
-    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  $fontcolor:#16325C;
+
+  span {
+
+    color: $fontcolor;
+    font-size: 0.9rem;
+    font-weight: bold;
+    position: relative;
+    left: -0.2rem;
   }
 
 </style>

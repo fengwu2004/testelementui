@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <image-cropper style="margin: 10rem auto;" rel="imagecropperref"></image-cropper>
+    <image-cropper rel="imagecropperref"></image-cropper>
   </div>
 </template>
 
@@ -25,6 +25,8 @@
   .main {
 
     /*max-width: 900px;*/
-    /*margin: 10rem auto;*/
+    position: absolute;
+    left: 10rem;
+    top: 10rem;
   }
 </style>
