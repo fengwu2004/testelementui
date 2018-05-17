@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <image-cropper rel="imagecropperref"></image-cropper>
+    <image-cropper rel="imagecropperref" init-url="https://fengyuanchen.github.io/cropperjs/images/picture.jpg"></image-cropper>
   </div>
 </template>
 

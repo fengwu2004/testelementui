@@ -10,16 +10,15 @@
             <span style="font-size: 2rem">点击上传</span>
           </div>
         </div>
-        <div style="display: flex;width: 100%;justify-content: center;margin-top: 1rem" :style="{visibility:imageAttacted ? 'visible' : 'hidden'}">
-          <el-button @click="outputImg" size="mini">确定</el-button>
-          <el-button @click="cancelImg" size="mini">取消</el-button>
+        <div style="display: flex;width: 100%;justify-content: center;margin-top: 1rem" :style="{visibility:dataUrl ? 'visible' : 'hidden'}">
+          <el-button @click="reloadImage" size="mini">重新上传</el-button>
         </div>
       </div>
       <div style="margin-top: 1rem;">
         <span class="helpertip">为了更好的显示在捷生活APP首页的信息卡片列表里面，图片尺寸要求</span><span class="focustip">长宽690*240px</span>
       </div>
     </div>
-    <div v-show="dataUrl">
+    <div v-show="imageAttacted">
       <span>手机效果预览</span>
       <div style="padding: 1rem;box-shadow: 0 8px 20px 0 #D9D9DD;">
         <div style="width: 460px;height: 160px;overflow: hidden;">
@@ -37,6 +36,10 @@
   import Cropper from 'cropperjs'
 
   export default {
+    created() {
+
+      this.dataUrl = this.initUrl
+    },
     methods:{
       upload() {
 
@@ -64,15 +67,15 @@
 
         this.imageAttacted = false
       },
-      cancelImg() {
+      reloadImage() {
 
         this.clearImg()
+
+        this.upload()
       },
       imagechange() {
 
         let file = document.getElementById("addfile-btn").files[0]
-
-        this.imageAttacted = true
 
         this.dataUrl = URL.createObjectURL(file)
 
@@ -103,8 +106,9 @@
         this.cropper = new Cropper(image, {
           aspectRatio,
           viewMode,
-          ready(e) {
+          ready() {
 
+            this.imageAttacted = true
           },
           crop(e) {
 
@@ -133,9 +137,10 @@
       return {
         cropper:null,
         dataUrl:null,
-        imageAttacted:false,
+        imageAttacted:false
       }
     },
+    props:['initUrl']
   }
 </script>
 
