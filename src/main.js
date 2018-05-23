@@ -54,3 +54,14 @@ else {
   
   console.log('不相等')
 }
+
+let d = new Date(1526832000000)
+let d1 = new Date(1526883391116)
+
+let w = dateRangeUtilIntance.getCurrentWeek()
+
+console.log(w)
+
+console.log(d.toLocaleTimeString())
+console.log(d1.toLocaleTimeString())
+

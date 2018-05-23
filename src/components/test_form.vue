@@ -11,7 +11,8 @@
         <el-input v-model.number="ruleForm2.age"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+        <!--<el-input type="submit" label="提交"/>-->
+        <el-button type="primary" native-type="submit" @click="submitForm('ruleForm2')">提交</el-button>
         <el-button @click="resetForm('ruleForm2')">重置</el-button>
       </el-form-item>
     </el-form>

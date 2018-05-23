@@ -12,6 +12,7 @@ import { default as menu } from '@/components/testmenu'
 import { default as RichEditor } from '@/components/richTextEditor'
 import { default as TestPopover } from '@/components/test_popover'
 import { default as Cropper } from '@/components/cropper'
+import { default as Form } from '@/components/test_form'
 
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
       path: '/height',
       name: 'height',
       component: TestHeight
+    },
+    {
+      path: '/form',
+      name: 'form',
+      component: Form
     },
     {
       path: '/escroll',
